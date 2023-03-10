@@ -1,3 +1,31 @@
+
+<template>
+  <v-card>
+    <h1>{{ header }}</h1>
+  <form 
+		class="add-item-form"
+  	@submit.prevent="saveItem"       
+	>
+    <input 
+    	v-model.trim="newItem"
+ 			type="text" 
+      placeholder="Add an item"
+    >
+    <button 
+      class="btn btn-primary"
+    >
+      Save Item
+    </button>
+   </form>
+    <ul>
+      <li v-for="({id, label}, index) in items" :key="id">
+        {{label}}
+      </li>
+    </ul>
+  </v-card>
+  
+</template>
+
 <script setup>
 import { ref } from 'vue'
 
@@ -15,30 +43,53 @@ const saveItem = ()=>{
 }
 </script>
 
-<template>
-  <h1>{{ header }}</h1>
-  <form 
-		class="add-item-form"
-  	@submit.prevent="saveItem"       
-	>
-    <input 
-    	v-model.trim="newItem"
- 			type="text" 
-      placeholder="Add an item"
-    >
-    <label>
-      <input type="checkbox" v-model="newItemHighPriority"> 
-      High Priority
-    </label>
-    <button 
-      class="btn btn-primary"
-    >
-      Save Item
-    </button>
-   </form>
-  <ul>
-    <li v-for="({id, label}, index) in items" :key="id">
-      {{label}}
-    </li>
-  </ul>
-</template>
+<style>
+.add-item-form,
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add-item-form input {
+  width: 70%;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid #f1f5f8;
+  color: #606f7b;
+  padding: 0.5rem 0.75rem;
+  box-sizing: border-box;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  margin: 0.5rem 0;
+}
+
+.btn {
+  border: none;
+  border-radius: 3px;
+  margin: auto 0;
+  padding: 0.5rem 0.75rem;
+  flex-shrink: 0;
+  cursor: pointer;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: all 0.1s ease-in;
+}
+
+.btn[disabled] {
+  background: #8795a1;
+}
+
+.btn[disabled]:hover {
+  background: #606f7b;
+}
+
+.btn-primary {
+  background: #6cb2eb;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #3490dc;
+}
+</style>
