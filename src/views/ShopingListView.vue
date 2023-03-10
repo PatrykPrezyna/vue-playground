@@ -19,7 +19,7 @@
    </form>
    <p>{{ characterCount }}/100</p>
     <ul>
-      <li v-for="({id, label}, index) in items" :key="id">
+      <li v-for="({id, label}, index) in reversedItems" :key="id">
         {{index}} - {{label}}
       </li>
     </ul>
@@ -43,6 +43,9 @@ const saveItem = ()=>{
 }
 const characterCount = computed(()=>{
   return newItem.value.length
+})
+const reversedItems = computed(()=>{
+  return [...items.value].reverse()
 })
 </script>
 
