@@ -1,31 +1,44 @@
-<template>
-  <div class="about">
-    <h1>{{ header }}</h1>
-    <input v-model.trim="newItem" placeholder="Add new Item">
-    <h1>{{ newItem }}</h1>
-    <ul>
-      <li v-for="({id, label}, index) in items" :key="id">{{index}} {{ label }}</li>
-    </ul>
-    <button class="btn" v-on:click="items.push({id: items.lenght +1, label: newItem})"> Add new Item</button>
-  </div>
-</template>
-
 <script setup>
-import {ref} from 'vue'
+import { ref } from 'vue'
 
-const header = ref("Shopping List")
-const items = ref([{id:1, label:'socks'},{id:2, label:'chocolate'},{id:3, label:'cola'},{id:4, label:'cola'}])
-const newItem = ref('test')
-const highPriority = ref(true)
-
+const header = ref('Shopping List App')
+const items = ref([
+  {id: 1, label: "10 party hats"},
+  {id: 2, label:"2 board games"},
+  {id: 3, label: "20 cups"}
+])
+const newItem = ref("")
+const newItemHighPriority = ref(false)
+const saveItem = ()=>{
+	items.value.push({id: items.value.length + 1,label: newItem.value})
+  newItem.value = ""
+}
 </script>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
+<template>
+  <h1>{{ header }}</h1>
+  <form 
+		class="add-item-form"
+  	@submit.prevent="saveItem"       
+	>
+    <input 
+    	v-model.trim="newItem"
+ 			type="text" 
+      placeholder="Add an item"
+    >
+    <label>
+      <input type="checkbox" v-model="newItemHighPriority"> 
+      High Priority
+    </label>
+    <button 
+      class="btn btn-primary"
+    >
+      Save Item
+    </button>
+   </form>
+  <ul>
+    <li v-for="({id, label}, index) in items" :key="id">
+      {{label}}
+    </li>
+  </ul>
+</template>
