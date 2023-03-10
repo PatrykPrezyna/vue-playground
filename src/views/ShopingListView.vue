@@ -17,9 +17,10 @@
       Save Item
     </button>
    </form>
+   <p>{{ characterCount }}/100</p>
     <ul>
       <li v-for="({id, label}, index) in items" :key="id">
-        {{label}}
+        {{index}} - {{label}}
       </li>
     </ul>
   </v-card>
@@ -27,7 +28,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 const header = ref('Shopping List App')
 const items = ref([
@@ -36,11 +37,13 @@ const items = ref([
   {id: 3, label: "20 cups"}
 ])
 const newItem = ref("")
-const newItemHighPriority = ref(false)
 const saveItem = ()=>{
 	items.value.push({id: items.value.length + 1,label: newItem.value})
   newItem.value = ""
 }
+const characterCount = computed(()=>{
+  return newItem.value.length
+})
 </script>
 
 <style>
