@@ -8,12 +8,12 @@ import HelloWorld from './components/HelloWorld.vue'
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld/>
 
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/shoppinglist">Schopping List</RouterLink>
+        <RouterLink to="/">Home</RouterLink><br>
+        <RouterLink to="/about">Career</RouterLink><br>
+        <RouterLink to="/shoppinglist">English</RouterLink>
       </nav>
     </div>
   </header>
@@ -34,7 +34,7 @@ header {
 
 nav {
   width: 100%;
-  font-size: 12px;
+  font-size: 24px;
   text-align: center;
   margin-top: 2rem;
 }

@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "pinia": "^2.0.32",
+    "v-network-graph": "^0.8.2",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
   },
