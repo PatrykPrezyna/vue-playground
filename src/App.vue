@@ -5,7 +5,7 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <img alt="Patryk" class="logo" src="@/assets/Patryk.jpeg" width="125" height="125" />
 
     <div class="wrapper">
       <HelloWorld/>
@@ -82,5 +82,8 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
+  img {
+  border-radius: 50%;
+}
 }
 </style>

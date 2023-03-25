@@ -12,7 +12,7 @@
     node2: { name: "Lisa" },
     node3: { name: "Baby" },
     node4: { name: "English" },
-    node5: { name: "career" },
+    node5: { name: "https://medium.com/js-dojo/how-to-permanently-save-data-with-vuex-localstorage-in-your-vue-app-f1d5c140db69" },
     node6: { name: "Family & Friends" },
   }
 
