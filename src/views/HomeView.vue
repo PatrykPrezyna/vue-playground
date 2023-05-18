@@ -3,10 +3,13 @@
     class="graph"
     :nodes="nodes"
     :edges="edges"
+    :layouts="layouts"
   />
+  <pre class="layouts">{{ layoutsText }}</pre>
 </template>
 
 <script setup lang="ts">
+import { ref, computed } from "vue"
   const nodes = {
     node1: { name: "Patryk" },
     node2: { name: "Lisa" },
@@ -24,14 +27,30 @@
     edge5: { source: "node1", target: "node5" },
     edge6: { source: "node1", target: "node6" },
   }
+  const layouts = ref({
+  nodes: {
+    node1: { x: 0, y: 0 },
+    node2: { x: 50, y: 50 },
+    node3: { x: 100, y: 0 },
+    node4: { x: 150, y: 50 },
+  },
+})
+
+const layoutsText = computed(() => {
+  return JSON.stringify(layouts.value, null, 2)
+})
 </script>
 
 
 
 <style>
-.graph {
-  width: 1000px;
-  height: 1000px;
-  border: 1px solid #000;
+.layouts {
+  position: absolute;
+  inset: auto 10px 10px auto;
+  padding: 10px;
+  background: #ffff0044;
+  border-radius: 4px;
+  font-size: 10px;
+  line-height: 11px;
 }
 </style>

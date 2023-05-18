@@ -8,7 +8,7 @@ import HelloWorld from './components/HelloWorld.vue'
     <img alt="Patryk" class="logo" src="@/assets/Patryk.jpeg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld/>
+      <HelloWorld msg="Hallo"/>
 
       <nav>
         <RouterLink to="/">Home</RouterLink><br>

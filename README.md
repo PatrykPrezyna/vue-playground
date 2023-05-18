@@ -40,3 +40,9 @@ npm run test:unit
 ```sh
 npm run lint
 ```
+
+# intro
+This project is my way of dealing with the "fear of missing out" and a help to prioritise my life. 
+
+There is much more in the world to learn that a single person can handle in a lifespan. 
+It is also so easy to miss the important thinks while dealing with urgent ones...
