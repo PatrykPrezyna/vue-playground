@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ShoppingListView from '../views/ShopingListView.vue'
+import ChildBedMenu from '../views/ChildBedMenu.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -9,6 +11,11 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView
+    },
+    {
+      path: '/childbedmenu',
+      name: 'childbedmenu',
+      component: ChildBedMenu
     },
     {
       path: '/about',
